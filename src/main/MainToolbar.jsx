@@ -17,7 +17,16 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     gap: theme.spacing(1),
+     backgroundColor: "#630f32",
+ 
   },
+  iconButtonWhite: {
+  // backgroundColor: '#ffffff',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '#e0e0e0', 
+    },
+  }, 
   filterPanel: {
     display: 'flex',
     flexDirection: 'column',
@@ -26,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     width: theme.dimensions.drawerWidthTablet,
   },
 }));
+
 
 const MainToolbar = ({
   filteredDevices,
@@ -59,10 +69,11 @@ const MainToolbar = ({
 
   return (
     <Toolbar ref={toolbarRef} className={classes.toolbar}>
-      <IconButton edge="start" onClick={() => setDevicesOpen(!devicesOpen)}>
+      <IconButton edge="start" onClick={() => setDevicesOpen(!devicesOpen)} className={classes.iconButtonWhite} >
         {devicesOpen ? <MapIcon /> : <ViewListIcon />}
       </IconButton>
       <OutlinedInput
+      style={{backgroundColor: '#630f32', color: 'white'}}
         ref={inputRef}
         placeholder={t('sharedSearchDevices')}
         value={keyword}
@@ -70,8 +81,9 @@ const MainToolbar = ({
         onFocus={() => setDevicesAnchorEl(toolbarRef.current)}
         onBlur={() => setDevicesAnchorEl(null)}
         endAdornment={(
-          <InputAdornment position="end">
-            <IconButton size="small" edge="end" onClick={() => setFilterAnchorEl(inputRef.current)}>
+      
+      <InputAdornment position="end"          style={{backgroundColor: '#630f32', color: 'white'}}  >
+            <IconButton size="small" edge="end" onClick={() => setFilterAnchorEl(inputRef.current)} className={classes.iconButtonWhite} >
               <Badge color="info" variant="dot" invisible={!filter.statuses.length && !filter.groups.length}>
                 <TuneIcon fontSize="small" />
               </Badge>
@@ -168,7 +180,7 @@ const MainToolbar = ({
           </FormGroup>
         </div>
       </Popover>
-      <IconButton edge="end" onClick={() => navigate('/settings/device')} disabled={deviceReadonly}>
+      <IconButton edge="end" onClick={() => navigate('/settings/device')} disabled={deviceReadonly} className={classes.iconButtonWhite}>
         <Tooltip open={!deviceReadonly && Object.keys(devices).length === 0} title={t('deviceRegisterFirst')} arrow>
           <AddIcon />
         </Tooltip>

@@ -10,6 +10,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import StorageIcon from '@mui/icons-material/Storage';
 import BuildIcon from '@mui/icons-material/Build';
 import PeopleIcon from '@mui/icons-material/People';
+import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import TodayIcon from '@mui/icons-material/Today';
 import PublishIcon from '@mui/icons-material/Publish';
 import SmartphoneIcon from '@mui/icons-material/Smartphone';
@@ -70,6 +71,12 @@ const SettingsMenu = () => {
               link="/geofences"
               icon={<CreateIcon />}
               selected={location.pathname.startsWith('/settings/geofence')}
+            />
+              <MenuItem
+              title={t('categoryPerson')}
+              link="/settings/person"
+              icon={<PersonOutlinedIcon />}
+              selected={location.pathname.startsWith('/settings/person')}
             />
             {!features.disableGroups && (
               <MenuItem

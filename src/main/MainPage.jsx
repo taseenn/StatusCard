@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import DeviceList from './DeviceList';
 import BottomMenu from '../common/components/BottomMenu';
 import StatusCard from '../common/components/StatusCard';
+import Card from '../common/components/Card';
 import { devicesActions } from '../store';
 import usePersistedState from '../common/util/usePersistedState';
 import EventsDrawer from './EventsDrawer';
@@ -29,9 +30,9 @@ const useStyles = makeStyles((theme) => ({
       position: 'fixed',
       left: 0,
       top: 0,
-      height: `calc(100% - ${theme.spacing(3)})`,
+      height: '100%',
       width: theme.dimensions.drawerWidthDesktop,
-      margin: theme.spacing(1.5),
+     // margin: theme.spacing(1.5),
       zIndex: 3,
     },
     [theme.breakpoints.down('md')]: {
@@ -146,7 +147,7 @@ const MainPage = () => {
       </div>
       <EventsDrawer open={eventsOpen} onClose={() => setEventsOpen(false)} />
       {selectedDeviceId && (
-        <StatusCard
+        <Card
           deviceId={selectedDeviceId}
           position={selectedPosition}
           onClose={() => dispatch(devicesActions.selectId(null))}

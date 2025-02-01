@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import MainPage from './main/MainPage';
+
 import CombinedReportPage from './reports/CombinedReportPage';
 import RouteReportPage from './reports/RouteReportPage';
 import ServerPage from './settings/ServerPage';
@@ -14,6 +15,7 @@ import NotificationsPage from './settings/NotificationsPage';
 import NotificationPage from './settings/NotificationPage';
 import GroupsPage from './settings/GroupsPage';
 import GroupPage from './settings/GroupPage';
+import PersonPage from './settings/PersonPage'
 import PositionPage from './other/PositionPage';
 import NetworkPage from './other/NetworkPage';
 import EventReportPage from './reports/EventReportPage';
@@ -116,12 +118,14 @@ const Navigation = () => {
         <Route path="event/:id" element={<EventPage />} />
         <Route path="replay" element={<ReplayPage />} />
         <Route path="geofences" element={<GeofencesPage />} />
+       
         <Route path="emulator" element={<EmulatorPage />} />
 
         <Route path="settings">
           <Route path="accumulators/:deviceId" element={<AccumulatorsPage />} />
           <Route path="announcement" element={<AnnouncementPage />} />
           <Route path="calendars" element={<CalendarsPage />} />
+          <Route path="person" element={<PersonPage />} />
           <Route path="calendar/:id" element={<CalendarPage />} />
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="commands" element={<CommandsPage />} />
